@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تخت‌ها</title>
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    color: #053d1f;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* محصولات */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.item {
+    background-color: #053d1f; /* کادر آبی تیره */
+    border-radius: 15px;
+    width: 45%;
+    max-width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #ffffff; /* متن سفید */
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.item h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* دکمه بازگشت */
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #053d1f;
+    color: #ffffff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .item { width: 90%; max-width: 300px; }
+    h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<h1>تخت‌ها</h1>
+
+<div class="products">
+    <div class="item" onclick="window.location.href='simple-bed.html'">
+        <img src="images/simple-bed.jpg" alt="تخت ساده">
+        <h2>تخت ساده</h2>
+    </div>
+    <div class="item" onclick="window.location.href='drawer-bed.html'">
+        <img src="images/drawer-bed.jpg" alt="تخت با کشو">
+        <h2>تخت با کشو</h2>
+    </div>
+    <div class="item" onclick="window.location.href='kids-bed.html'">
+        <img src="images/kids.jpg" alt="تخت بچه">
+        <h2>تخت بچه</h2>
+    </div>
+</div>
+
+<a href="index.html" class="back-btn">بازگشت به صفحه اصلی</a>
+
+</body>
+</html>

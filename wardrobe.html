@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کمدها</title>
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #ffffff;
+    text-align: center;
+    padding: 15px;
+    color: #053d1f; /* متن آبی تیره */
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* محصولات */
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.item {
+    background-color: #053d1f; /* کادر آبی تیره */
+    border-radius: 15px;
+    width: 45%;
+    max-width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #ffffff; /* متن سفید */
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.item h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* دکمه بازگشت */
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #053d1f; /* آبی تیره */
+    color: #ffffff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .item { width: 90%; max-width: 300px; }
+    h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<h1>کمدها</h1>
+
+<div class="products">
+    <div class="item" onclick="window.location.href='wall-wardrobe.html'">
+        <img src="images/wall-wardrobe.jpg" alt="کمد دیواری">
+        <h2>کمد دیواری</h2>
+    </div>
+    <div class="item" onclick="window.location.href='standing-wardrobe.html'">
+        <img src="images/standing-wardrobe.jpg" alt="کمد لباس ایستاده">
+        <h2>کمد لباس ایستاده</h2>
+    </div>
+    <div class="item" onclick="window.location.href='drawer-wardrobe.html'">
+        <img src="images/drawer-wardrobe.jpg" alt="کمد دراور">
+        <h2>کمد دراور (کشو دار)</h2>
+    </div>
+</div>
+
+<a href="index.html" class="back-btn">بازگشت به صفحه اصلی</a>
+
+</body>
+</html>

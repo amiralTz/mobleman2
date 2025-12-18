@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبل فروشی</title>
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #ffffff;
+}
+
+/* نیمه بالا سفید */
+.top-half {
+    background-color: #ffffff;
+    min-height: 50vh;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #000000;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+/* کارت محصولات */
+.item {
+    background-color: #6B4F3F;
+    border-radius: 15px;
+    width: 45%;
+    max-width: 180px;
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.item h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* نیمه پایین قهوه‌ای */
+.bottom-half {
+    background-color: #4B3621;
+    min-height: 50vh; /* همیشه نصف صفحه */
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    padding: 30px 15px;
+    box-sizing: border-box;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* متن وسط نیمه پایین */
+    align-items: center;
+}
+
+.bottom-half p {
+    margin: 8px 0;
+    font-size: 16px;
+}
+
+@media (max-width: 600px) {
+    .item {
+        width: 90%;
+        max-width: 300px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .bottom-half p {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="top-half">
+    <h1>محصولات ما</h1>
+    <div class="products">
+        <a href="royal-sofa.html" class="item">
+            <img src="images/sovereign-sofa.jpg" alt="مبل سلطنتی">
+            <h2>مبل سلطنتی</h2>
+        </a>
+        <a href="comfortable.html" class="item">
+            <img src="images/raha.webp" alt="مبل راحتی">
+            <h2>مبل راحتی</h2>
+        </a>
+        <a href="wardrobe.html" class="item">
+            <img src="images/wardrobe.jpg" alt="کمد">
+            <h2>کمد</h2>
+        </a>
+        <a href="bed.html" class="item">
+            <img src="images/bed.jpg" alt="تخت">
+            <h2>تخت</h2>
+        
+        <a href="tv-table.html" class="item">
+            <img src="images/tv-table.jpg" alt="میز تلویزیون">
+            <h2>میز تلویزیون</h2>
+        </a>
+    </div>
+</div>
+
+<div class="bottom-half">
+    <p>از بازدید شما سپاسگزاریم!</p>
+    <p>آدرس: خیابان نمونه، شماره ۱۲۳</p>
+    <p>تلفن: ۰۹۱۲۳۴۵۶۷۸۹</p>
+    <p>اینستاگرام: @moblekhiali</p>
+</div>
+
+</body>
+</html>

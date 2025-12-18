@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مبل سلطنتی</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Tahoma, sans-serif;
+            background-color: #F5F0E1; /* کرم روشن */
+            color: #4B3621;
+            text-align: center;
+            padding: 15px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .item {
+            background-color: #A67C52; /* قهوه‌ای ملایم */
+            border-radius: 15px;
+            width: 45%;
+            max-width: 200px;
+            padding: 10px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease;
+            color: #ffffff;
+            text-decoration: none; /* حذف خط زیر لینک */
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 8px;
+        }
+
+        .item h2 {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background-color: #A67C52;
+            color: #ffffff;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        .back-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 600px) {
+            .item { width: 90%; max-width: 300px; }
+            h1 { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+<h1>مبل سلطنتی</h1>
+
+<div class="products">
+    <a href="ravian.html" class="item">
+        <img src="images/ravian.webp" alt="مبل راویان">
+        <h2>مبل راویان</h2>
+    </a>
+    <a href="chester.html" class="item">
+        <img src="images/chester.avif" alt="مبل چستر">
+        <h2>مبل چستر</h2>
+    </a>
+    <a href="holland.html" class="item">
+        <img src="images/holland.jpg" alt="مبل هلندی سلطنتی">
+        <h2>مبل هلندی سلطنتی</h2>
+    </a>
+    <a href="classic.html" class="item">
+        <img src="images/classic.jpg" alt="مبل کلاسیک فرانسوی">
+        <h2>مبل کلاسیک فرانسوی</h2>
+    </a>
+</div>
+
+<a href="index.html" class="back-btn">بازگشت به صفحه اصلی</a>
+
+</body>
+</html>

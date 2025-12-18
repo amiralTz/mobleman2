@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مبل راحتی</title>
+<style>
+body {
+    margin: 0;
+    font-family: Tahoma, sans-serif;
+    background-color: #ffffff; /* پس‌زمینه سفید */
+    color: #053d1f; /* متن سبز تیره */
+    text-align: center;
+    padding: 15px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.products {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.item {
+    background-color: #053d1f; /* سبز تیره */
+    border-radius: 15px;
+    width: 45%;
+    max-width: 200px;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    color: #ffffff;
+}
+
+.item:hover {
+    transform: translateY(-5px);
+}
+
+.item img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.item h2 {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 25px;
+    background-color: #053d1f;
+    color: #ffffff;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 600px) {
+    .item { width: 90%; max-width: 300px; }
+    h1 { font-size: 22px; }
+}
+</style>
+</head>
+<body>
+
+<h1>مبل راحتی</h1>
+
+<div class="products">
+    <div class="item" onclick="window.location.href='l-shaped.html'">
+        <img src="images/l-shaped.jpg" alt="مبل ال">
+        <h2>مبل ال (L-Shaped)</h2>
+    </div>
+    <div class="item" onclick="window.location.href='sofa.html'">
+        <img src="images/sofa.webp" alt="مبل کاناپه‌ای">
+        <h2>مبل کاناپه‌ای (Sofa)</h2>
+    </div>
+    <div class="item" onclick="window.location.href='sofa-bed.html'">
+        <img src="images/sofa-bed.webp" alt="مبل تخت‌خواب‌شو">
+        <h2>مبل تخت‌خواب‌شو (Sofa Bed)</h2>
+    </div>
+    <div class="item" onclick="window.location.href='chaise.html'">
+        <img src="images/chaise.jpg" alt="مبل شزلون">
+        <h2>مبل شزلون (Chaise Lounge)</h2>
+    </div>
+</div>
+
+<a href="index.html" class="back-btn">بازگشت به صفحه اصلی</a>
+
+</body>
+</html>
