@@ -10,24 +10,30 @@ body {
     font-family: Tahoma, sans-serif;
     background-color: #ffffff;
 }
+
+/* نیمه بالا سفید */
 .top-half {
     background-color: #ffffff;
     min-height: 50vh;
     padding: 15px;
     box-sizing: border-box;
 }
+
 h1 {
     text-align: center;
     margin-bottom: 20px;
     font-size: 24px;
     color: #000000;
 }
+
 .products {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
 }
+
+/* کارت محصولات */
 .item {
     background-color: #6B4F3F;
     border-radius: 15px;
@@ -41,21 +47,26 @@ h1 {
     color: #ffffff;
     text-decoration: none;
 }
+
 .item:hover {
     transform: translateY(-5px);
 }
+
 .item img {
     width: 100%;
     border-radius: 10px;
     margin-bottom: 8px;
 }
+
 .item h2 {
     font-size: 16px;
     margin: 5px 0;
 }
+
+/* نیمه پایین قهوه‌ای */
 .bottom-half {
     background-color: #4B3621;
-    min-height: 50vh;
+    min-height: 50vh; /* همیشه نصف صفحه */
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
     padding: 30px 15px;
@@ -64,17 +75,26 @@ h1 {
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; /* متن وسط نیمه پایین */
     align-items: center;
 }
+
 .bottom-half p {
     margin: 8px 0;
     font-size: 16px;
 }
+
 @media (max-width: 600px) {
-    .item { width: 90%; max-width: 300px; }
-    h1 { font-size: 20px; }
-    .bottom-half p { font-size: 14px; }
+    .item {
+        width: 90%;
+        max-width: 300px;
+    }
+    h1 {
+        font-size: 20px;
+    }
+    .bottom-half p {
+        font-size: 14px;
+    }
 }
 </style>
 </head>
@@ -82,8 +102,27 @@ h1 {
 
 <div class="top-half">
     <h1>محصولات ما</h1>
-    <div class="products" id="products">
-        <!-- محصولات از اینجا اضافه می‌شوند -->
+    <div class="products">
+        <a href="royal-sofa.html" class="item">
+            <img src="images/sovereign-sofa.jpg" alt="مبل سلطنتی">
+            <h2>مبل سلطنتی</h2>
+        </a>
+        <a href="comfortable.html" class="item">
+            <img src="images/raha.webp" alt="مبل راحتی">
+            <h2>مبل راحتی</h2>
+        </a>
+        <a href="wardrobe.html" class="item">
+            <img src="images/wardrobe.jpg" alt="کمد">
+            <h2>کمد</h2>
+        </a>
+        <a href="bed.html" class="item">
+            <img src="images/bed.jpg" alt="تخت">
+            <h2>تخت</h2>
+        
+        <a href="tv-table.html" class="item">
+            <img src="images/tv-table.jpg" alt="میز تلویزیون">
+            <h2>میز تلویزیون</h2>
+        </a>
     </div>
 </div>
 
@@ -94,40 +133,6 @@ h1 {
     <p>اینستاگرام: @moblekhiali</p>
 </div>
 
-<!-- اسکریپت اتصال به Supabase -->
-<script type="module">
-import { createClient } from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js/+esm'
-
-const supabaseUrl = 'https://aiyxqjezvsngzjgkwfxi.supabase.co'
-const supabaseKey = 'sb_publishable_uVARW6_YCxLwg8DIYDjYbw_cMxtveHc'
-const supabase = createClient(supabaseUrl, supabaseKey)
-
-async function loadProducts() {
-    const { data, error } = await supabase
-        .from('products')  // نام جدول شما
-        .select('*')
-
-    if (error) {
-        console.error('خطا در دریافت محصولات:', error)
-        return
-    }
-
-    const container = document.getElementById('products')
-    data.forEach(product => {
-        const a = document.createElement('a')
-        a.href = product.link || '#'  // لینک صفحه جزئیات
-        a.className = 'item'
-        a.innerHTML = 
-            <img src="${product.image}" alt="${product.name}">
-            <h2>${product.name}</h2>
-        
-        container.appendChild(a)
-    })
-}
-
-// بارگذاری محصولات هنگام باز شدن صفحه
-loadProducts()
-</script>
-
 </body>
+
 </html>
