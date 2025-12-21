@@ -77,19 +77,55 @@ h1 {
 
 <h1>مبل راویان</h1>
 
-<img src="images/ravian.webp" alt="مبل راویان" class="item-img">
+<img src="" alt="مبل راویان" class="item-img">
 
 <div class="description-box">
-    <p><strong>پارچه:</strong> هندی با کیفیت ممتاز</p>
-    <p><strong>چوب:</strong> راش طبیعی مقاوم و با دوام</p>
-    <p><strong>ویژگی‌ها:</strong> طراحی سلطنتی، راحت و بادوام</p>
-    <p><strong>رنگ:</strong> قهوه‌ای طلایی</p>
-    <p><strong>اندازه:</strong> طول ۲ متر × عمق ۹۰ سانتی‌متر × ارتفاع ۱۰۰ سانتی‌متر</p>
+    <p><strong>پارچه:</strong> </p>
+    <p><strong>چوب:</strong> </p>
+    <p><strong>ویژگی‌ها:</strong> </p>
+    <p><strong>رنگ:</strong> </p>
+    <p><strong>اندازه:</strong> </p>
 </div>
 
-<p class="price">قیمت: ۳۵ میلیون تومان</p>
+<p class="price"></p>
 
 <a href="royal-sofa.html" class="back-btn">بازگشت به مبل سلطنتی</a>
+
+<!-- Supabase JS -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+  const supabaseUrl = 'https://aiyxqjezvsngzjgkwfxi.supabase.co';
+  const supabaseKey = 'sb_publishable_uVARW6_YCxLwg8DIYDjYbw_cMxtveHc';
+  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
+
+  async function loadData() {
+    const { data, error } = await supabase
+      .from('products')
+      .select('*')
+      .eq('name', 'راویان');
+
+    if (error) {
+      console.error('خطا در دریافت داده:', error);
+      return;
+    }
+
+    if (data && data.length > 0) {
+      const product = data[0];
+      document.querySelector('.item-img').src = product.image;
+      const box = document.querySelector('.description-box');
+      box.innerHTML = 
+        <p><strong>پارچه:</strong> ${product.fabric}</p>
+        <p><strong>چوب:</strong> ${product.wood}</p>
+        <p><strong>ویژگی‌ها:</strong> ${product.features}</p>
+        <p><strong>رنگ:</strong> ${product.color}</p>
+        <p><strong>اندازه:</strong> ${product.size}</p>
+      ;
+      document.querySelector('.price').textContent = قیمت: ${product.price};
+    }
+  }
+
+  loadData();
+</script>
 
 </body>
 </html>
