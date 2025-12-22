@@ -1,0 +1,20 @@
+backend:
+  name: git-gateway
+  branch: main
+  repo: amiralTz/mobleman2
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "products"
+    label: "محصولات"
+    folder: "data/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "نام محصول", name: "title", widget: "string" }
+      - { label: "دسته‌بندی", name: "category", widget: "string" }
+      - { label: "قیمت", name: "price", widget: "string" }
+      - { label: "توضیحات", name: "description", widget: "text" }
+      - { label: "عکس", name: "image", widget: "image" }
