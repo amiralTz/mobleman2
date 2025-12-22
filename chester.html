@@ -5,37 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مبل چستر</title>
 <style>
-body {
-    margin: 0;
-    font-family: Tahoma, sans-serif;
-    background-color: #F5F0E1;
-    color: #4B3621;
-    text-align: center;
-    padding: 15px;
-}
+body { margin: 0; font-family: Tahoma, sans-serif; background-color: #F5F0E1; color: #4B3621; text-align: center; padding: 15px; }
 h1 { font-size: 28px; margin-bottom: 20px; }
 .item-img { width: 90%; max-width: 500px; border-radius: 15px; margin-bottom: 20px; }
-.description-box {
-    background-color: #A67C52;
-    border-radius: 15px;
-    padding: 20px;
-    color: #ffffff;
-    display: inline-block;
-    text-align: left;
-    max-width: 500px;
-    width: 90%;
-    box-sizing: border-box;
-    margin-bottom: 20px;
-}
-.description-box p { margin: 8px 0; line-height: 1.5; }
+.description-box { background-color: #A67C52; border-radius: 15px; padding: 20px; color: #ffffff; display: inline-block; text-align: left; max-width: 500px; width: 90%; box-sizing: border-box; margin-bottom: 20px; }
 .price { font-size: 18px; font-weight: bold; color: #053d1f; margin-bottom: 20px; }
-.back-btn { display: inline-block; padding: 12px 25px; background-color: #6B4F3F; color: #ffffff; border-radius: 12px; text-decoration: none; font-weight: bold; transition: transform 0.2s ease; }
-.back-btn:hover { transform: translateY(-3px); }
-@media (max-width: 600px) {
-    h1 { font-size: 22px; }
-    .description-box p { font-size: 14px; }
-    .price { font-size: 16px; }
-}
+.back-btn { display: inline-block; padding: 12px 25px; background-color: #6B4F3F; color: #fff; border-radius: 12px; text-decoration: none; font-weight: bold; }
 </style>
 </head>
 <body>
@@ -57,22 +32,29 @@ h1 { font-size: 28px; margin-bottom: 20px; }
 <a href="royal-sofa.html" class="back-btn">بازگشت به مبل سلطنتی</a>
 
 <script>
-const sheetID = "1TnHgPsrtcTYonqQlIGKHzy7jmm2c5FDp9PaLnbOXXmA"; // شناسه شیت
-const url = https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json;
+const sheetID = "1TnHgPsrtcTYonqQlIGKHzy7jmm2c5FDp9PaLnbOXXmA";
+const url = https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&gid=0;
 
 fetch(url)
   .then(res => res.text())
-  .then(data => {
-    const jsonData = JSON.parse(data.substring(47).slice(0, -2));
-    const rows = jsonData.table.rows;
+  .then(text => {
+    const json = JSON.parse(text.substring(47).slice(0, -2));
+    const rows = json.table.rows;
 
-    // مقدار پارچه و قیمت از شیت خوانده می‌شود
-    document.getElementById("fabric").innerText = rows[0].c[1].v;
-    document.getElementById("price").innerText = "قیمت: " + rows[1].c[1].v;
+    // خواندن مقدارها از جدول
+    const priceRow = rows.find(r => r.c[0] && r.c[0].v === "قیمت");
+    const fabricRow = rows.find(r => r.c[0] && r.c[0].v === "پارچه");
+
+    if (priceRow && priceRow.c[1]) {
+      document.getElementById("price").innerText = "قیمت: " + priceRow.c[1].v;
+    }
+    if (fabricRow && fabricRow.c[1]) {
+      document.getElementById("fabric").innerText = fabricRow.c[1].v;
+    }
   })
   .catch(err => {
-    document.getElementById("fabric").innerText = "خطا در بارگذاری";
     document.getElementById("price").innerText = "خطا در بارگذاری";
+    document.getElementById("fabric").innerText = "خطا در بارگذاری";
     console.error(err);
   });
 </script>
