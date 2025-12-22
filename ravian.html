@@ -4,11 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>مبل راویان</title>
+
 <style>
 body {
     margin: 0;
     font-family: Tahoma, sans-serif;
-    background-color: #F5F0E1; /* کرم روشن */
+    background-color: #F5F0E1;
     color: #4B3621;
     text-align: center;
     padding: 15px;
@@ -19,6 +20,7 @@ h1 {
     margin-bottom: 20px;
 }
 
+/* تصویر محصول */
 .item-img {
     width: 90%;
     max-width: 500px;
@@ -28,30 +30,31 @@ h1 {
 
 /* کادر توضیحات */
 .description-box {
-    background-color: #A67C52; /* قهوه‌ای ملایم */
+    background-color: #A67C52;
     border-radius: 15px;
     padding: 20px;
     color: #ffffff;
-    display: inline-block;
-    text-align: left;
+    text-align: right;
     max-width: 500px;
     width: 90%;
+    margin: 0 auto 20px auto;
     box-sizing: border-box;
-    margin-bottom: 20px;
 }
 
 .description-box p {
     margin: 8px 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
+/* قیمت */
 .price {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     color: #033219;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
+/* دکمه بازگشت */
 .back-btn {
     display: inline-block;
     padding: 12px 25px;
@@ -62,70 +65,36 @@ h1 {
     font-weight: bold;
     transition: transform 0.2s ease;
 }
+
 .back-btn:hover {
     transform: translateY(-3px);
 }
 
 @media (max-width: 600px) {
     h1 { font-size: 22px; }
+    .price { font-size: 18px; }
     .description-box p { font-size: 14px; }
-    .price { font-size: 16px; }
 }
 </style>
 </head>
+
 <body>
 
 <h1>مبل راویان</h1>
 
-<img src="" alt="مبل راویان" class="item-img">
+<img src="images/ravian.webp" alt="مبل راویان" class="item-img">
 
 <div class="description-box">
-    <p><strong>پارچه:</strong> </p>
-    <p><strong>چوب:</strong> </p>
-    <p><strong>ویژگی‌ها:</strong> </p>
-    <p><strong>رنگ:</strong> </p>
-    <p><strong>اندازه:</strong> </p>
+    <p><strong>پارچه:</strong> پارچه هندی درجه یک با دوام بالا</p>
+    <p><strong>چوب:</strong> چوب راش طبیعی، مقاوم و ضد ترک</p>
+    <p><strong>طراحی:</strong> سبک سلطنتی کلاسیک با منبت‌کاری ظریف</p>
+    <p><strong>رنگ‌بندی:</strong> قهوه‌ای طلایی، کرم، زرشکی</p>
+    <p><strong>ابعاد:</strong> طول ۲ متر × عمق ۹۰ سانتی‌متر × ارتفاع ۱۰۰ سانتی‌متر</p>
 </div>
 
-<p class="price"></p>
+<p class="price">قیمت: ۳۵ میلیون تومان</p>
 
 <a href="royal-sofa.html" class="back-btn">بازگشت به مبل سلطنتی</a>
-
-<!-- Supabase JS -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-<script>
-  const supabaseUrl = 'https://aiyxqjezvsngzjgkwfxi.supabase.co';
-  const supabaseKey = 'sb_publishable_uVARW6_YCxLwg8DIYDjYbw_cMxtveHc';
-  const supabase = supabase.createClient(supabaseUrl, supabaseKey);
-
-  async function loadData() {
-    const { data, error } = await supabase
-      .from('products')
-      .select('*')
-      .eq('name', 'راویان');
-
-    if (error) {
-      console.error('خطا در دریافت داده:', error);
-      return;
-    }
-
-    if (data && data.length > 0) {
-      const product = data[0];
-      document.querySelector('.item-img').src = product.image;
-      const box = document.querySelector('.description-box');
-      box.innerHTML = 
-        <p><strong>پارچه:</strong> ${product.fabric}</p>
-        <p><strong>چوب:</strong> ${product.wood}</p>
-        <p><strong>ویژگی‌ها:</strong> ${product.features}</p>
-        <p><strong>رنگ:</strong> ${product.color}</p>
-        <p><strong>اندازه:</strong> ${product.size}</p>
-      ;
-      document.querySelector('.price').textContent = قیمت: ${product.price};
-    }
-  }
-
-  loadData();
-</script>
 
 </body>
 </html>
