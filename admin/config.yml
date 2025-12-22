@@ -1,7 +1,7 @@
 backend:
   name: github
-  branch: main
   repo: amiralTz/mobleman2
+  branch: main
 
 media_folder: "images/uploads"
 public_folder: "/images/uploads"
