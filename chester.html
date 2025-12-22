@@ -20,7 +20,7 @@ h1 { font-size: 28px; margin-bottom: 20px; }
 <img src="images/chester.avif" alt="مبل چستر" class="item-img">
 
 <div class="description-box">
-    <p><strong>پارچه:</strong> <span id="fabric">در حال بارگذاری...</span></p>
+    <p><strong>پارچه:</strong> نسکافه‌ای</p>
     <p><strong>چوب:</strong> گردو با کیفیت بالا</p>
     <p><strong>ویژگی‌ها:</strong> طراحی کلاسیک و بادوام، راحت</p>
     <p><strong>رنگ:</strong> نسکافه‌ای تیره</p>
@@ -32,29 +32,17 @@ h1 { font-size: 28px; margin-bottom: 20px; }
 <a href="royal-sofa.html" class="back-btn">بازگشت به مبل سلطنتی</a>
 
 <script>
-const sheetID = "1TnHgPsrtcTYonqQlIGKHzy7jmm2c5FDp9PaLnbOXXmA";
-const url = https://docs.google.com/spreadsheets/d/${sheetID}/gviz/tq?tqx=out:json&gid=0;
+const sheetURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRTeMgfGk_C_deE5zsdgeK6y6OuspWgBjDM-uffZdQkJmT0q4kNeLOnwRnTh8U1pTOJSxdxuWdnPN00/pub?gid=0&single=true&output=csv";
 
-fetch(url)
+fetch(sheetURL)
   .then(res => res.text())
-  .then(text => {
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    const rows = json.table.rows;
-
-    // خواندن مقدارها از جدول
-    const priceRow = rows.find(r => r.c[0] && r.c[0].v === "قیمت");
-    const fabricRow = rows.find(r => r.c[0] && r.c[0].v === "پارچه");
-
-    if (priceRow && priceRow.c[1]) {
-      document.getElementById("price").innerText = "قیمت: " + priceRow.c[1].v;
-    }
-    if (fabricRow && fabricRow.c[1]) {
-      document.getElementById("fabric").innerText = fabricRow.c[1].v;
-    }
+  .then(csvText => {
+    const rows = csvText.split("\n");
+    const b7 = rows[6].split(",")[1];  // سطر 7 و ستون B
+    document.getElementById("price").innerText = "قیمت: " + b7.trim();
   })
   .catch(err => {
     document.getElementById("price").innerText = "خطا در بارگذاری";
-    document.getElementById("fabric").innerText = "خطا در بارگذاری";
     console.error(err);
   });
 </script>
